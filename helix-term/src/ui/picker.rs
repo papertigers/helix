@@ -708,7 +708,7 @@ impl<T: Item + Send + 'static> Component for DynamicPicker<T> {
         self.file_picker.render(area, surface, cx);
     }
 
-    fn handle_event(&mut self, event: Event, cx: &mut Context) -> EventResult {
+    fn handle_event(&mut self, event: &Event, cx: &mut Context) -> EventResult {
         let prev_query = self.file_picker.picker.prompt.line().to_owned();
         let event_result = self.file_picker.handle_event(event, cx);
         let current_query = self.file_picker.picker.prompt.line();
